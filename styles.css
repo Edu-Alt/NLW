@@ -1,0 +1,161 @@
+* { /* Usado para apagar todos os espaços que o navegador criou*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none; /* Tira os pontinhos ou numérações de listas*/
+}
+
+body {
+    background-image: url(./assets/bg.jpg); /* Local de onde o fundo é retirado*/
+    background-position: top center; /* Faz com que o fundo fique no topo e centralizado*/
+    background-size: 100% auto; /* Faz comque o fundo ocupe 100% de eixo horizontal e redimencione com a janela*/
+    background-repeat: no-repeat; /* Tira as repetições de fundos*/
+    background-color: #121214; /*Adiciona cor ao fundo*/
+}
+
+body * {
+    font-family: 'Inter', sans-serif; /* Usado para aplicar fonte que foi colada no index.html*/
+    line-height: 160%; /* Usado para definir a altura da linha*/
+
+}
+
+header {
+    padding-top: 32px; /* Espaçamento da img do top da pagina*/
+    height: calc(120px + 32px); /* Para fazer o calculo dos espaçamentos da img auto*/
+
+}
+
+header div { /*div não tem propiedades de texto*/
+    width: 120px;
+    margin: auto;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%); /* Fundo em gradiente 90deg e referente ao grada de angulação do gradiente*/
+
+    border-radius: 50%;
+
+    display: flex; /* Para adicionar atributor de centralização*/
+    padding: 4px; /* Prenchimento de 4px para aparecer por traz da img*/
+
+    transition: transform .3s; /* Transition recebe o transform do header divi:hover e ganha .3s de tempo para fazer a transição*/
+
+}
+
+header div:hover { /* hover na div faz com que quando se passe o mouse em cima da div ele acione as propiedades descritas a baixo 'não a espaço entre a div:hover'*/
+    transform: scale(1.1);
+    
+}
+
+header img {
+    width: 100%; /* Largura referente ao 120px do Head div*/
+    border-radius: 50%;
+    
+}
+
+main {
+    max-width: 580px; /* Tamanho maximo da caixa dado em px*/
+    width: 90%; /* Largura maxima da caixa relativa a tela*/
+    margin: 32px auto; /* Margem das caixa relativa a largura das caixas e tela quando a 2 valores ele se comporta como primeiro 'baixo e cima' e segundo'esquerda e direita'*/
+
+    display: grid; /* Alternativa ao display flex (contuinua com as caixas uma a baixo da outra caso a tela for menor que o layout*/
+    gap: 24px; 
+
+}
+
+section {
+    color: white;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%); /* Fundo em gradiente 90deg e referente ao grada de angulação do gradiente*/
+    padding-top: 4px;
+    border-radius: 10px;
+}
+
+section div {
+    background-color: #2A2634;
+    padding: 32px;
+    padding-top: 24;
+    border-radius: 8px;
+
+}
+
+section h2 {
+    letter-spacing: -0.47px; /* Espaço entre as letras*/
+}
+
+section p {
+    letter-spacing: -0.18px;
+    color: #A1A1AA;
+}
+
+section ul {
+    display: flex; /* Display utilazado para agrupar lado a lado caixas que estão dentro do ul*/
+    flex-wrap: wrap; /* Caso muitos itens na lista faz com que fiquem alinhados logo a baixo*/
+    gap: 16px; /* Utilizado para dar espaços nas caixas do display */
+    margin-top: 24px;
+
+}
+
+section ul li { /* Aqui ficar atento as seções para que aplique em cada caixa separada*/
+    transition: transform .3s;
+}
+
+section ul li:hover {
+    transform: scale(1.1);
+}
+
+.games-list img {
+    width: 90px; /* Tamanho da img*/
+    border-radius: 8px; /* Borda das img arredondadas*/
+}
+
+.chanel-list img {
+    width: 70px; /* Tamanho da img*/
+    border-radius: 50%; /* Borda da img totalmente arredondada*/
+    border: 1px solid #443E54;
+}
+/*Animações*/
+header div {
+    animation: fromTop .7s .2s backwards; /* 1nome da animação, 2tempo de animação, 3delay que ela vai aparecer e 4para para puxar propiedades e suavisar a animação*/
+
+}
+
+main section {
+    animation: fromBottom .7s backwards;
+}
+
+main section:nth-child(1) { /* Para selecionar o primeiro filho do main ou seja a primeira sessão que e 'Meus jogo'*/
+    animation-delay: 0;
+}
+
+main section:nth-child(2) { /* Para selecionar o primeiro filho do main ou seja a segunda sessão que e 'Meus jogo'*/
+    animation-delay: .4s;
+}
+
+main section:nth-child(3) { /* Para selecionar o primeiro filho do main ou seja a terceira sessão que e 'Meus jogo'*/
+    animation-delay: .8s;
+}
+
+@keyframes fromTop { /* Para criar uma animação*/
+    from {
+        opacity: 0; /* Para dar efeito de fading 0 invisivel*/
+        transform: translateY(-30px) /* O fara com que venha de cima a -30px */
+    }
+
+    to {
+        opacity: 1; /* Continuar o efeito com 1 visivel*/
+        transform: translateY(0) /* O translateY(0) fara com que ele volte a posição atual*/
+    }
+    
+}
+
+@keyframes fromBottom {
+    from {
+        opacity: 0; /* Para dar efeito de fading 0 invisivel*/
+        transform: translateY(30px) /* O fara com que venha de cima a -30px */
+    }
+
+    to {
+        opacity: 1; /* Continuar o efeito com 1 visivel*/
+        transform: translateY(0) /* O translateY(0) fara com que ele volte a posição atual*/
+    }
+}
